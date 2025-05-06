@@ -1,0 +1,39 @@
+# Python virtual environment
+venv/
+env/
+ENV/
+.env/
+.venv/
+env.bak/
+venv.bak/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+static/
+staticfiles/
+
+# Django migrations (sometimes ignored in development)
+# */migrations/*.py
+# !*/migrations/__init__.py
+
+# Django settings
+.env
+.env.local
+.env.development
