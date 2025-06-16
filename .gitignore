@@ -1,39 +1,53 @@
-# Python virtual environment
-venv/
-env/
-ENV/
-.env/
-.venv/
-env.bak/
-venv.bak/
-
-# Python cache files
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-.pytest_cache/
-.coverage
-htmlcov/
+
+# C extensions
+*.so
 
 # Distribution / packaging
 dist/
 build/
 *.egg-info/
 
-# Django
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-media/
-static/
-staticfiles/
-
-# Django migrations (sometimes ignored in development)
-# */migrations/*.py
-# !*/migrations/__init__.py
-
-# Django settings
+# Virtual environments
+venv/
+env/
+ENV/
 .env
-.env.local
-.env.development
+.venv
+env.bak/
+venv.bak/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Logs
+*.log
+
+# Local configuration
+.local/
+local_settings.py
+
+# Database
+*.sqlite3
+*.db
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db

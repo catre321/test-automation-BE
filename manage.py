@@ -1,22 +1,39 @@
-#!/usr/bin/env python
-"""Django's command-line utility for administrative tasks."""
-import os
-import sys
+import click
+from sqlmodel import Session
+from app.core.database import engine, create_db_and_tables
+from scripts.seed_data import seed_database
 
+@click.group()
+def cli():
+    """Database management commands"""
+    pass
 
-def main():
-    """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TestAutomationBE.settings')
-    try:
-        from django.core.management import execute_from_command_line
-    except ImportError as exc:
-        raise ImportError(
-            "Couldn't import Django. Are you sure it's installed and "
-            "available on your PYTHONPATH environment variable? Did you "
-            "forget to activate a virtual environment?"
-        ) from exc
-    execute_from_command_line(sys.argv)
+@cli.command("init-db")
+def init_db():
+    """Initialize database tables"""
+    print("Creating database tables...")
+    create_db_and_tables()
+    print("Database tables created successfully!")
 
+@cli.command("seed-db")
+def seed_db():
+    """Seed database with initial users"""
+    seed_database()
 
-if __name__ == '__main__':
-    main()
+@cli.command("reset-db")
+def reset_db():
+    """Reset database (drops and recreates tables with initial users)"""
+    print("Dropping all tables...")
+    from sqlmodel import SQLModel
+    SQLModel.metadata.drop_all(engine)
+    
+    print("Creating tables...")
+    create_db_and_tables()
+    
+    print("Seeding with initial users...")
+    seed_database()
+    
+    print("Database reset completed!")
+
+if __name__ == "__main__":
+    cli()
