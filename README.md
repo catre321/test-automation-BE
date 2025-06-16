@@ -100,9 +100,11 @@ BE-AI/
    ```
 
 5. **Run database migrations:**
-   ```bash
-   alembic upgrade head
-   ```
+   # Initialize the database tables
+   python manage.py init-db
+
+   # Seed the database with initial users
+   python manage.py seed-db
 
 6. **Start the development server:**
    ```bash
