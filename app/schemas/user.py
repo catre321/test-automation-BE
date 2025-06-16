@@ -33,5 +33,4 @@ class UserRegister(BaseModel):
 
 class UserInDB(UserBase):
     id: int
-    
     model_config = ConfigDict(from_attributes=True)
